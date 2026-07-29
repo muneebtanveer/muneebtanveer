@@ -942,7 +942,7 @@ section {
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background: #090d16;
+  background: #f8f6f0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -951,13 +951,14 @@ section {
 .portfolio-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
+  padding: 1.25rem;
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-card:hover .portfolio-img {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 .mockup-overlay-info {
@@ -1253,22 +1254,20 @@ section {
 /* --------------------------------------------------------------------------
    11. Contact Section
    -------------------------------------------------------------------------- */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 3.5rem;
-}
-
-@media (max-width: 900px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 .contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 840px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .contact-info {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
 }
 
 .contact-card {
@@ -1279,6 +1278,7 @@ section {
   padding: 1.75rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1.25rem;
   transition: all var(--transition-fast);
   text-decoration: none;
@@ -1286,9 +1286,10 @@ section {
 }
 
 .contact-card:hover {
-  transform: translateX(5px);
+  transform: translateY(-4px);
   background: var(--bg-card-hover);
   border-color: var(--primary-glow);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 .contact-icon {
